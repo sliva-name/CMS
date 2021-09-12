@@ -1,8 +1,6 @@
 <?php
 namespace Engine\DI {
 
-
-
     class DI
     {
         /**
@@ -28,7 +26,6 @@ namespace Engine\DI {
          * @return mixed|null
          */
         public function get($key)
-
         {
             return $this->has($key);
         }

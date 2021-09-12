@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace Cms\Controller;
 
 class ErrorController extends CmsController

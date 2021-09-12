@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Engine\Core\Template;
-
 
 use Twig\Environment;
 use Twig\Error\LoaderError;
@@ -12,7 +10,6 @@ use Twig\Loader\FilesystemLoader;
 
 class View
 {
-
     /**
      * @var FilesystemLoader
      */
@@ -24,10 +21,10 @@ class View
 
     public function __construct()
     {
-        $this->loader = new FilesystemLoader( ROOT_DIR . '\content\themes\default');
+        $this->loader = new FilesystemLoader(ROOT_DIR . '\content\themes\default');
         $this->twig = new Environment($this->loader, [
-            'cache' => ROOT_DIR . '\content\themes',
-            'debug' => true
+            'cache' => ROOT_DIR . '\tmp\cache\twig',
+            'debug' => true,
         ]);
     }
 
@@ -39,12 +36,9 @@ class View
     {
         try
         {
-           echo $this->twig->render ($template .'.tpl', $vars);
-        }
-        catch (LoaderError | RuntimeError | SyntaxError $e)
-        {
-            exit($e->getMessage ());
+            echo $this->twig->render($template . '.tpl', $vars);
+        } catch (LoaderError | RuntimeError | SyntaxError $e) {
+            exit($e->getMessage());
         }
     }
-
 }

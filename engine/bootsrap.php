@@ -6,20 +6,17 @@ use Engine\Cms;
 use Engine\DI\DI;
 
 try {
-
     $di = new DI();
 
     $services = require __DIR__ . '/Config/Config.php';
 
-    foreach ($services as $service)
-    {
+    foreach ($services as $service) {
         $provider = new $service($di);
         $provider->init();
     }
 
     $cms = new Cms($di);
     $cms->run();
-}
-catch (ErrorException $e) {
+} catch (ErrorException $e) {
     echo $e->getMessage();
 }

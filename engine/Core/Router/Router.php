@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Engine\Core\Router;
-
 
 class Router
 {
@@ -32,21 +30,19 @@ class Router
         $this->routes[$key] = [
             'pattern' => $pattern,
             'controller' => $controller,
-            'method' => $method
+            'method' => $method,
         ];
     }
     public function dispatch($method, $url)
     {
-        return $this->getDispatch()->dispatch ($method, $url);
+        return $this->getDispatch()->dispatch($method, $url);
     }
     private function getDispatch()
     {
-        if ($this->dispatch === null)
-        {
+        if ($this->dispatch === null) {
             $this->dispatch = new UrlDispatch();
-            foreach ($this->routes as $route)
-            {
-                $this->dispatch->register($route['method'], $route['pattern'], $route['controller'] );
+            foreach ($this->routes as $route) {
+                $this->dispatch->register($route['method'], $route['pattern'], $route['controller']);
             }
         }
         return $this->dispatch;

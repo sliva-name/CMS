@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Engine\Service;
-
 
 use Engine\DI\DI;
 
@@ -21,5 +19,5 @@ abstract class AbstractProvider
     {
         $this->di = $di;
     }
-    abstract function init();
+    abstract public function init();
 }

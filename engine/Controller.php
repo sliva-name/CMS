@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Engine;
-
 
 use Engine\DI\DI;
 
@@ -22,7 +20,6 @@ abstract class Controller
      * @var
      */
     protected $view;
-
 
     /**
      * Controller constructor.

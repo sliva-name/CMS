@@ -16,11 +16,10 @@ class Provider extends AbstractProvider
      */
     public function init()
     {
-        $settings = require $_SERVER['DOCUMENT_ROOT'] . '/engine/Config/RouterConfig.php';
+        $settings = require ROOT_DIR . '/engine/Config/RouterConfig.php';
 
         $router = new Router($settings);
 
         $this->di->set($this->serviceName, $router);
     }
-
 }
